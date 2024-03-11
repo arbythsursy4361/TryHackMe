@@ -1,7 +1,30 @@
 Offensive security is the process of breaking into computer systems, exploiting software bugs, and finding loopholes in applications to gain unauthorized access to them.
 Defensive security, which is the process of protecting an organization's network and computer systems by analyzing and securing any potential digital threats.
-
-First machine
 -------------
+First machine
+
 GoBuster will take a list of potential page or directory names and tries accessing a website with each of them; if the page exists, it tells you.
 CMD:gobuster -u http://fakebank.com/ -w wordlist.txt
+----------------------------------
+Introduction to Defensive Security
+
+Offensive security focuses on one thing: breaking into systems.
+Firewalls control what network traffic can go inside and what can leave the system or network.
+IPS blocks any network traffic that matches present rules and attack signatures.
+---------------------------
+Areas of Defensive Security
+
+*Security Operations Center(SOC), where we cover Threat Intelligence.
+*Digital Forensics and Incident Response(DFIR), where we also cover Malware Analysis.
+
+Threat Intelligence
+Intelligence refers to information you gather about actual and potential enemies.
+A threat is any action that can disrupt or adversely affect a system.
+Threat intelligence aims to gather information to help the company better prepare against potential adversaries.
+
+Incident Response
+Preparation(Training) -> Detection and Analysis -> Containment(stop the virus to spread), Eradication(clear the virus), and Recovery -> Post-Incident Activity
+--------
+Practice
+
+Security Information and Event Management(SIEM):A SIEM gathers security-related information and events from various sources and presents them via one system.
