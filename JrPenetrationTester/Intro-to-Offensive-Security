@@ -1,2 +1,7 @@
 Offensive security is the process of breaking into computer systems, exploiting software bugs, and finding loopholes in applications to gain unauthorized access to them.
-Defensive security, which is the process of protecting an organization's network and computer systems by analyzing and securing any potential digital threats
+Defensive security, which is the process of protecting an organization's network and computer systems by analyzing and securing any potential digital threats.
+
+First machine
+-------------
+GoBuster will take a list of potential page or directory names and tries accessing a website with each of them; if the page exists, it tells you.
+CMD:gobuster -u http://fakebank.com/ -w wordlist.txt
