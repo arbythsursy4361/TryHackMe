@@ -1,1 +1,57 @@
+#1. Brief
+  SQL(Structured Query Language) Injection is an attack on a web application database server that causes malicious queries to be executed.
+----------
+#2. What is a Database?
+  A database is a way of electronically storing collections of data in an organised manner. Database is controlled by a DBMS.
+----------
+#3. What is SQL?
+  SQL is a feature-rich language used for querying databases.
+  -> SELECT
+  -> UNION
+  -> INSERT
+  -> UPDATE
+  -> DELETE
+----------
+#4. What is SQL Injection?
+  SQL injection is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database.
+----------
+#5. In-Band SQLi
+  In-Band SQL injection: It just refers to the same method of communication being used to exploit the vulnerability and also receive the results.
+  Error-Based SQL Injection: The error messages from the database are printed directly to the browser screen, then often be used to enumerate a
+whole database.
+  Union-Based SQL Injection: It utilises the UNION operator alongside a SELECT statement to return additional results to the page.
 
+  Practical:
+  Error-based SQL Injection is most commonly single apostrophes (') or a quotation mark (").
+
+  SELECT * FROM article WHERE id = 0 UNION SELECT 1, 2, group_concat(table_name) FROM information_schema.tables WHERE table_schema = database();
+  The information_schema database is every user of the database has access to this, and it contains information about all the databases and tables
+the user has access to.
+  SELECT * FROM article WHERE id = 0 UNION SELECT 1,2,group_concat(column_name) FROM information_schema.columns WHERE table_name = 'staff_users';
+----------
+#6. Blind SQLi - Authentication Bypass
+  Blind SQLi is when we get little to no feedback to confirm whether our injected queries were. Authentication methods such as login forms.
+  SELECT * FROM users WHERE username='0' OR 1=1;-- AND password='' OR 1=1;
+----------
+#7. Blind SQLi - Boolean Based
+  Boolean-based SQL Injection refers to the response we receive from our injection attempts, which could be a true/false. We get a true response
+because, in the like operator, we just have the value of %, which will match anything as it's the wildcard value.
+----------
+#8. Blind SQLi - Time Based
+  A time-based blind SQL injection is very similar to the above boolean-based one in that the same requests are sent, but there is no visual
+indicator of your queries being wrong or right this time. The SLEEP() method will only ever get executed upon a successful UNION SELECT sta-
+tement.
+#9. Out-of-Band SQLi
+  It depends on specific features being enabled on the database server or the web application's business logic, which makes some kind of ex-
+ternal network call based on the results from an SQL query. An Out-Of-Band attack is classified by having two different communication chann-
+els, one to launch the attack and the other to gather the results.
+----------
+#10. Remediation
+  Prepared Statements (With Parameterized Queries): The first thing a developer writes is the SQL query, and then any user inputs are added
+as parameters afterwards.
+
+  Input Validation: A string replacement method in the programming language can filter the characters you wish to allow or disallow.
+
+  Escaping User Input: Allowing user input containing characters such as ' " $ \ can cause SQL Queries to break. Escaping user input is the
+method of prepending a backslash (\) to these characters, which then causes them to be parsed just as a regular string and not a special c-
+haracter.
