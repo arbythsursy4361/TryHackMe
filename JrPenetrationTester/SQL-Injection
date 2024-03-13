@@ -41,6 +41,7 @@ because, in the like operator, we just have the value of %, which will match any
   A time-based blind SQL injection is very similar to the above boolean-based one in that the same requests are sent, but there is no visual
 indicator of your queries being wrong or right this time. The SLEEP() method will only ever get executed upon a successful UNION SELECT sta-
 tement.
+----------
 #9. Out-of-Band SQLi
   It depends on specific features being enabled on the database server or the web application's business logic, which makes some kind of ex-
 ternal network call based on the results from an SQL query. An Out-Of-Band attack is classified by having two different communication chann-
